@@ -1,0 +1,6 @@
+github.com/b4b4r07/go-finder v0.0.0-20181114065839-81b460ffb72a h1:l+bYwNqh7+2p+4luGKrQkhfBi86LDQtaTEcPAgWCmiE=
+github.com/b4b4r07/go-finder v0.0.0-20181114065839-81b460ffb72a/go.mod h1:TBc0wHBkU0kofzNTY5Fal+Giv8dk2qb2HNaGfcpER2w=
+github.com/pkg/errors v0.8.1 h1:iURUrRGxPUNPdy5/HRSm+Yj6okJ6UtLINN0Q9M4+h3I=
+github.com/pkg/errors v0.8.1/go.mod h1:bwawxfHBFNV+L2hUp1rHADufV3IMtnDRdf1r5NINEl0=
+github.com/urfave/cli v1.20.0 h1:fDqGv3UG/4jbVl/QkFwEdddtEDjh/5Ov6X+0B/3bPaw=
+github.com/urfave/cli v1.20.0/go.mod h1:70zkFmudgCuE/ngEzBv17Jvp/497gISqfk5gWijbERA=
