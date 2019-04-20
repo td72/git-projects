@@ -23,6 +23,9 @@ func list_projects(all bool) (finder.Items, error) {
 				items.Add(p, p)
 			}
 		}
+		if all {
+			break
+		}
 	}
 	return items, nil
 }
