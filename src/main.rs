@@ -1,5 +1,6 @@
 mod config;
 mod fzf;
+mod history;
 mod repo;
 
 use anyhow::Result;
@@ -35,7 +36,9 @@ fn cmd_choice(ctx: &config::AppContext, show_all: bool) -> Result<()> {
             .collect()
     };
 
-    let selected = fzf::select(&filtered)?;
+    let sorted = history::sort_by_history(filtered);
+    let selected = fzf::select(&sorted)?;
+    history::record(&selected);
     let full_path = Path::new(&ctx.root).join(&selected);
     println!("{}", full_path.display());
 
