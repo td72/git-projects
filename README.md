@@ -5,6 +5,7 @@ fzf を使ってリポジトリを選択し、パスを出力する CLI ツー�
 ## 依存
 
 - [fzf](https://github.com/junegunn/fzf)
+- Rust 1.85 以上（ビルド時のみ）
 
 ## インストール
 
