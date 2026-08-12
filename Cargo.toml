@@ -2,6 +2,9 @@
 name = "git-projects"
 version = "0.1.0"
 edition = "2021"
+# clap が 1.85 を要求するため、これが下限。CI の msrv ジョブがこの値を読んで
+# 実際にビルドが通るかを検証するので、依存の更新で上がったときは気づける。
+rust-version = "1.85"
 
 [dependencies]
 clap = { version = "4", features = ["derive"] }

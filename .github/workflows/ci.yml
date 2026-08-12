@@ -30,3 +30,23 @@ jobs:
         run: cargo test
       - name: Build release
         run: cargo build --release
+
+  # README が cargo install --git を案内している以上、利用者は各自の toolchain で
+  # ソースからビルドする。Cargo.toml の rust-version が実態と合っているかを確認する。
+  msrv:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - name: Read MSRV from Cargo.toml
+        id: msrv
+        # 二重管理を避けるため、バージョンは Cargo.toml だけに書く。
+        run: |
+          version=$(sed -n 's/^rust-version *= *"\(.*\)"/\1/p' Cargo.toml)
+          test -n "$version" || { echo "rust-version not found in Cargo.toml"; exit 1; }
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+      - uses: dtolnay/rust-toolchain@master
+        with:
+          toolchain: ${{ steps.msrv.outputs.version }}
+      - uses: Swatinem/rust-cache@v2
+      - name: Build on MSRV
+        run: cargo build --locked
